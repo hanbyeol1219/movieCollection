@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR&family=Roboto+Slab:wght@100&display=swap");
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+#wrap {
+  width: 100%;
+  background-color: #eeeeee;
+}
+
+#headerContents {
+  height: 200px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#searchMovie {
+  margin-top: 2em;
+}
+
+#cardsWrap {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 70%;
+  padding: 2%;
+  background-color: whitesmoke;
+  display: grid;
+  column-gap: 3%;
+  row-gap: 35px;
+  grid-template-columns: repeat(3, minmax(100px, auto));
+  grid-auto-rows: minmax(950px, auto);
+}
+
+.card {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: antiquewhite;
+  padding: 5%;
+  border-radius: 20px;
+}
+
+.cardContents {
+  width: 100%;
+}
+
+.movieImageBox {
+  background-color: gainsboro;
+  width: 100%;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.movieImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movieName {
+  margin: 5% 0;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.moviePlot {
+  line-height: 1.6em;
+  margin: 5% 0;
+}
+
+#footer {
+  width: 100%;
+  background-color: azure;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
