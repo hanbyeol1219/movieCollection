@@ -1,3 +1,44 @@
+let movies;
+let cardWrap;
+let id;
+let keyword;
+
+function deleteCards() {
+  while (cardWrap.firstChild) {
+    cardWrap.removeChild(cardWrap.firstChild);
+  }
+}
+
+function rederCards(cards) {
+  cards.forEach((movie) => {
+    const { poster_path, title, overview, vote_average, id } = movie;
+
+    let temp_html = `<div class="card" id=${id}>
+    <div class="cardContents">
+      <div class="movieImageBox">
+        <img
+          src="https://image.tmdb.org/t/p/original/${poster_path}"
+          alt="movieImage"
+          class="movieImage"
+        />
+      </div>
+      <h2 class="movieName">${title}</h2>
+      <p class="moviePlot">${overview}</p>
+      <p class="movieRatings">Rating : ${vote_average}</p>
+    </div>
+  </div>`;
+    cardWrap.insertAdjacentHTML("beforeend", temp_html);
+  });
+  //클릭 alert
+  let clickCards = document.querySelectorAll(".card");
+
+  clickCards.forEach((checkCard) => {
+    checkCard.addEventListener("click", function () {
+      alert(`해당 영화의 id는 ${checkCard.id} 입니다.`);
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const options = {
     method: "GET",
@@ -15,40 +56,28 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
-        let rows = response["results"];
+        movies = response["results"];
+        cardWrap = document.querySelector("#cardsWrap");
 
-        const cardWrap = document.querySelector("#cardsWrap");
-        while (cardWrap.firstChild) {
-          cardWrap.removeChild(cardWrap.firstChild);
-        }
+        deleteCards();
 
-        rows.forEach((a) => {
-          let poster_path = a["poster_path"];
-          let title = a["title"];
-          let overview = a["overview"];
-          let vote_average = a["vote_average"];
-
-          let temp_html = `<div class="card">
-          <div class="cardContents">
-            <div class="movieImageBox">
-              <img
-                src="https://image.tmdb.org/t/p/original/${poster_path}"
-                alt="movieImage"
-                class="movieImage"
-              />
-            </div>
-            <h2 class="movieName">${title}</h2>
-            <p class="moviePlot">${overview}</p>
-            <p class="movieRatings">Rating : ${vote_average}</p>
-          </div>
-        </div>`;
-          // cardWrap.appendChild(temp_html);
-          cardWrap.insertAdjacentHTML("beforeend", temp_html);
-        });
+        rederCards(movies);
       })
       .catch((err) => console.error(err));
   }
 
   showMovie();
 });
+
+function searchMovie() {
+  keyword = document.querySelector("#inputKeyword").value.toLowerCase();
+
+  deleteCards();
+
+  const filteredMovie = movies.filter((movie) => {
+    let lowerTitle = movie.original_title.toLowerCase();
+    return lowerTitle.includes(keyword);
+  });
+
+  rederCards(filteredMovie);
+}

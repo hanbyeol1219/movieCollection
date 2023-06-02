@@ -9,104 +9,40 @@
   </head>
   <body>
     <div id="wrap">
-      <header>
+      <header id="header">
         <div id="headerContents">
-          <h1 id="title">내배캠 최고 평점 영화 콜렉션</h1>
-          <div id="searchMovie">
+          <h1 id="title">The <span>movie</span> collection</h1>
+
+          <form id="searchMovie">
             <input
               type="text"
               name="inputKeyword"
               id="inputKeyword"
               placeholder="검색을 원하는 영화를 입력하세요."
+              autocomplete="off"
+              autofocus
             />
-            <button onclick="searchMovie()">검색하기</button>
-          </div>
+            <button
+              type="submit"
+              id="searchBtn"
+              onclick="searchMovie(); return false;"
+            >
+              <img src="/image/search.png" alt="검색 아이콘 이미지" />
+            </button>
+          </form>
         </div>
       </header>
 
-      <main id="main">
+      <main>
         <div id="cardsWrap">
           <div class="card">
             <div class="cardContents">
               <div class="movieImageBox">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/ko/3/31/%EC%A1%B0%EC%BB%A4_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg"
-                  alt="movieImage"
-                  class="movieImage"
-                />
+                <img src="" alt="movieImage" class="movieImage" />
               </div>
-              <h2 class="movieName">Joker</h2>
-              <p class="moviePlot">
-                Arthur Fleck, a clown in Gotham City, tries to be nice, but the
-                absurdity and bitterness of life constantly overwhelms him.
-                Unable to endure the dirt of the world toward him without
-                unrequited love or career, he is eventually reborn as the worst
-                villain Joker.
-              </p>
-              <p class="movieRatings">Rating : 8.97</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="cardContents">
-              <div class="movieImageBox">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/ko/3/31/%EC%A1%B0%EC%BB%A4_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg"
-                  alt="movieImage"
-                  class="movieImage"
-                />
-              </div>
-              <h2 class="movieName">Joker</h2>
-              <p class="moviePlot">
-                Arthur Fleck, a clown in Gotham City, tries to be nice, but the
-                absurdity and bitterness of life constantly overwhelms him.
-                Unable to endure the dirt of the world toward him without
-                unrequited love or career, he is eventually reborn as the worst
-                villain Joker.
-              </p>
-              <p class="movieRatings">Rating : 8.97</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="cardContents">
-              <div class="movieImageBox">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/ko/3/31/%EC%A1%B0%EC%BB%A4_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg"
-                  alt="movieImage"
-                  class="movieImage"
-                />
-              </div>
-              <h2 class="movieName">Joker</h2>
-              <p class="moviePlot">
-                Arthur Fleck, a clown in Gotham City, tries to be nice, but the
-                absurdity and bitterness of life constantly overwhelms him.
-                Unable to endure the dirt of the world toward him without
-                unrequited love or career, he is eventually reborn as the worst
-                villain Joker.
-              </p>
-              <p class="movieRatings">Rating : 8.97</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="cardContents">
-              <div class="movieImageBox">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/ko/3/31/%EC%A1%B0%EC%BB%A4_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg"
-                  alt="movieImage"
-                  class="movieImage"
-                />
-              </div>
-              <h2 class="movieName">Joker</h2>
-              <p class="moviePlot">
-                Arthur Fleck, a clown in Gotham City, tries to be nice, but the
-                absurdity and bitterness of life constantly overwhelms him.
-                Unable to endure the dirt of the world toward him without
-                unrequited love or career, he is eventually reborn as the worst
-                villain Joker.
-              </p>
-              <p class="movieRatings">Rating : 8.97</p>
+              <h2 class="movieName"></h2>
+              <p class="moviePlot"></p>
+              <p class="movieRatings">Rating :</p>
             </div>
           </div>
         </div>
